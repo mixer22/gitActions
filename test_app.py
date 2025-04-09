@@ -15,7 +15,7 @@ def test_root(client):
     assert response.json == {"message": "Hello, Flask"}
 
 def test_quoted_mocked(client):
-    with patch("app.get_quote_of_the_day", return_value="Mocked quote!"):
+    with patch("app.get_quote_of_the_day", return_value="Mocked!"):
         response = client.get("/quote")
     assert response.status_code == 200
-    assert response.json == {"quote":"Mocked"}
+    assert response.json == {"quote":"Mocked!"}
